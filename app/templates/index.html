@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,30 +10,58 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <title>{{ title }}</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="../static/img/logo.svg" />
-                </div>
-            </a>
-        </div>
+      <div class="nav-content">
+        <a href="/">
+          <div class="nav-logo">
+            <img src="../static/img/logo.svg" />
+          </div>
+        </a>
+      </div>
     </header>
 
     <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="../static/img/pfp.jpeg">
-        </div>
-        <h1>MLH Portfolio</h1>
+      <div id="profile-picture" class="profile-picture">
+        <img src="../static/img/pfp.jpeg">
+      </div>
+      <h1>MLH Portfolio
     </div>
-</body>
+
+    <div class="about-me">
+      <p id="about-me-title">About Me!</p>
+      <p id="about-me-intro">Hi! I'm <strong>Michael!</strong> I am a freshman at CUNY Hunter College majoring in Computer Science. I am currently invested with learning full-stack web development with hopes of becoming a software engineer in the future!</p>
+      <p style="font-size: 20px; text-align: center;">I am currently working on two projects: </p>
+      <div class="about-me-imgs">
+        <div style="display: flex; flex-direction: column; align-items: center;">          
+          <p style="font-size: 25px; margin-bottom: 0px;"><strong>backlight-simulator</strong></p>
+          <p>Simulated the dynamic backlighting effect of RGB lights behind TVs/monitors by using React.js, TypeScript, computer vision, and WebGPU</p>
+          <img class="big-img" src="../static/img/backlight.gif"/>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center;">          
+          <p style="font-size: 25px; margin-bottom: 0px;"><strong>mockr</strong></p>
+          <p>An AI powered mock coding interview platform aimed for practicing both communication and techincal skills</p>
+          <img style="border: 3px solid black; width:900px; height: auto;" src="../static/img/mockr.png"/>
+        </div>
+      </div>
+
+
+      <p id="about-me-desc">Outside of programming, I enjoy playing video games and basketball with my friends, as well as adore weight training at least 3x a week! I also enjoy eating out and catching up with friends and loved ones, and have really been into eating Vietnamese food :)</p>
+      <div class="about-me-imgs">
+        <img class="small-img" src="../static/img/pho.jpg"/>
+        <div class="stacked-imgs">
+          <img class="small-img" src="../static/img/minecraft.avif"/>
+          <img class="small-img" src="../static/img/basketball.jpeg"/>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
