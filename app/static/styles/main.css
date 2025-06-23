@@ -162,3 +162,10 @@ body {
   align-items: center;
 }
 
+.hobby-images {
+  border: 2px solid black;
+  width: 400px;
+  height: 350px;
+  margin-right: 5px;
+}
+
