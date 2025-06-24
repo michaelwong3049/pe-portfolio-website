@@ -164,8 +164,17 @@ body {
 
 .hobby-images {
   border: 2px solid black;
-  width: 400px;
+  width: 600px;
   height: 350px;
   margin-right: 5px;
 }
+
+.location-images {
+  border: 3px solid black;
+  width: 20%;
+  height: auto;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
 

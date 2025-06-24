@@ -67,28 +67,20 @@
     <!-- Work Experience -->
     <div>
       <h1 style="text-align: center;">Previous Work Experience</h1>
-      <!-- AuriStor -->
-      <div class="work">
-        <img class="small-img" src="../static/img/auristor.jpeg"/>
-        <div class="work-description">
-          <h2>I previously worked at AuriStor as a <strong>software engeineer intern</strong>. Here, I was able to work on two projects: </h2>
-          <div style="width: 90%;">
-            <p style="font-size: 20px;">- Developed a <strong>Go</strong> backend server aimed to query over <strong>70+</strong> server statistics to monitor and display performance and server health using <strong>Prometheus</strong> and a <strong>Grafana</strong> dashboard</p>
-            <p style="font-size: 20px;">- Worked on a frontend dashboard using <strong>React.js</strong> and <strong>TypeScript</strong> to display user's information about their AFS cells and volumes.</p>
+      {%  for job in work_experiences %}
+        <div class="work">
+          <img class="small-img" src="../static/img/{{ job.image }}"/>
+          <div class="work-description">
+            <h2>I previously worked at {{ job.company}} as a <strong>software engeineer intern</strong>. Here, I was able to work on two projects: </h2>
+            <div style="width: 90%;">
+              <p style="font-size: 20px;">{{ job.description  }}</p>
+            {% if job.description2 %}
+              <p style="font-size: 20px;">{{ job. description2 }}</p>
+            </div>
+            {% endif %}
           </div>
         </div>
-      </div>
-
-      <!-- Movement Vault -->
-      <div class="work">
-        <img class="small-img" src="../static/img/movementvault.svg"/>
-        <div class="work-description">
-          <h2>I am also currently interning at a fitness startup, Movement Vault, as a software engineer intern!</h2>
-          <div style="width: 90%;">
-            <p style="font-size: 20px;">Currently, I'm programming in <strong>Swift</strong> developing an iOS application aimed at providing users the ability to scan product barcodes to learn more about the dangerous ingredients to avoid. Programming in Swift is quite different, but also an enjoyable experience being able to tackle and learn a new programming language.</p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>  
 
     <!-- Hobbies -->
@@ -96,56 +88,37 @@
       <h1 style="margin-top: 50px; text-align: center;"><strong>Hobbies</strong></h1>
       <h3 style="text-align: center; margin-bottom: 20px;">Outside of programming, school, and other chores/work, I have various activities I partake in!</h3>
 
-      <!-- Video Games -->
-      <p style="font-size: 20px; text-align: center;">I used to play video games very passionately, and was one of the things that ate a lot of my time during my childhood, especially during quarantine...</p>
-      <div style="display: flex; justify-content: center;">
-        <img class="hobby-images" src="../static/img/minecraft.avif"/>
-        <img class="hobby-images" src="../static/img/roblox.png"/>
-        <img class="hobby-images" src="../static/img/valorant.webp"/>
-      </div>
-
-      <!-- Basketball -->
-      <div>
-        <p style="font-size: 20px; margin-top: 20px; text-align: center;">When I decide to get some sunglight occasionally, I like to go play some pickup basketball with friends at my local park!</p>
-        <div style="display: flex; justify-content: center;">
-          <img class="small-img" src="../static/img/lebron.jpeg"/>
-          <img class="small-img" src="../static/img/basketball.jpeg"/>
-        </div>
-      </div>
-    
-      <!-- Hanging out -->
-      <div>
-        <p style="font-size: 20px; margin-top: 20px; text-align: center;">I also just like hanging out with friends, family and loved ones!</p>
-        <div style="display: flex; justify-content: center;">
-          <img class="small-img" src="../static/img/pic1.jpeg"/>
-          <img class="small-img" src="../static/img/rockclimbing.jpeg"/>
-          <img class="small-img" src="../static/img/cousin.jpeg"/>
-        </div>
-      </div>
+      {% for hobby in hobbies %}
+        <p style="font-size: 20px; text-align: center;">{{ hobby.description }}</p>
+         {% if loop.index0 == 1 %}
+          <div style="display: flex; justify-content: center;">
+            <img class="hobby-images" src="../static/img/{{ hobby.image1 }}"/>
+            <img class="hobby-images" src="../static/img/{{ hobby.image2 }}"/>
+          </div>
+        {% else %}
+          <div style="display: flex; justify-content: center;">
+            <img class="small-img" src="../static/img/{{ hobby.image1 }}"/>
+            <img class="small-img" src="../static/img/{{ hobby.image2 }}"/>
+            <img class="small-img" src="../static/img/{{ hobby.image3 }}"/>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
 
     <!-- Education -->
     <div>
-      <!-- Current Education -->
-      <h1 style="text-align: center;">Education</h1>
-      <div>
-        <p style="font-size: 20px; text-align: center;">Currently, I'm attending CUNY Hunter College, located in NYC where I live.</p>
-        <p style="font-size: 20px; text-align: center;">By being able to still live at home with my family, as well as having loads of opportunities by going to school in the heart of New York City, I find to love it here!</p>
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <img class="small-img" src="../static/img/hunter.jpg"/>
-          <img style="border: 2px solid black; width: 500px; height: 200px; margin-left: 5px;" src="../static/img/hunterlogo.png"/>
-        </div>
-      </div>
 
-      <!-- Previous Education -->
-      <div>
-        <p style="font-size: 20px; text-align: center;">On a side note... I just graduated from Midwood High School last year located in Brooklyn!</p>
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <img class="small-img" src="../static/img/fieldday.jpeg"/>
-          <img class="small-img" src="../static/img/graduation1.jpeg"/>
-          <img class="small-img" src="../static/img/graduation2.jpeg"/>
+      <h1 style="text-align: center;">Education</h1>
+      {% for education in education %}
+        <div>
+          <p style="font-size: 20px; text-align: center;">{{ education.description }}</p>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <img class="small-img" src="../static/img/{{ education.image1 }}"/>
+            <img style="border: 2px solid black; width: 25%; height: auto; margin-left: 5px;" src="../static/img/{{ education.image2 }}"/>
+            <img style="border: 2px solid black; width: 25%; height: auto; margin-left: 5px;" src="../static/img/{{ education.image3 }}"/>
+          </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
 
     <!-- Locations -->
@@ -154,11 +127,11 @@
       <p style="font-size: 20px; text-align: center;">Fun fact... I have never been on a plane yet... but I have went to many cool places!</p>
       <p style="font-size: 20px; text-align: center;">Some random places I've went to this past year was Columbia's DivHacks, Princeton's HackPrinceton, my sister's Cornell graduation, and Boston!!!</p>
         <div style="display: flex; justify-content: center; align-items: center;">
-          <img class="small-img" src="../static/img/hackprinceton.jpeg"/>
-          <img class="small-img" src="../static/img/princeton.jpeg"/>
-        <img class="small-img" src="../static/img/divhacks.jpeg"/>
-          <img class="small-img" src="../static/img/cornell.jpeg"/>
-          <img class="small-img" src="../static/img/boston.jpeg"/>
+          <img class="location-images" src="../static/img/hackprinceton.jpeg"/>
+          <img class="location-images" src="../static/img/princeton.jpeg"/>
+          <img class="location-images" src="../static/img/divhacks.jpeg"/>
+          <img class="location-images" src="../static/img/cornell.jpeg"/>
+          <img class="location-images" src="../static/img/boston.jpeg"/>
         </div>
     </div>
 
