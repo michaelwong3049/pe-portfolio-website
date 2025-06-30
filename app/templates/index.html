@@ -20,6 +20,14 @@
 
   <body>
     <header class="nav-bar">
+      <!-- Menu Bar -->
+
+      <div class="menu-bar">
+        <a href="#work-experience">Work Experience</a>
+        <a href="#education">Education</a>
+        <a href="/hobbies">Hobbies</a>
+        <a href="#locations">Locations</a>
+      </div>
       <div class="nav-content">
         <a href="/">
           <div class="nav-logo">
@@ -38,7 +46,7 @@
 
     <!-- About Me Section -->
     <div class="about-me">
-      <p id="about-me-title">About Me!</p>
+      <p id="about-me-title"><strong>About Me!</strong></p>
       <p id="about-me-intro">Hi! I'm <strong>Michael!</strong> I am a freshman at CUNY Hunter College majoring in Computer Science. I am currently invested with learning full-stack web development with hopes of becoming a software engineer in the future!</p>
       <p style="font-size: 20px; text-align: center;">I am currently working on two projects: </p>
       <div class="about-me-imgs">
@@ -65,13 +73,13 @@
     </div>
 
     <!-- Work Experience -->
-    <div>
+    <div id="work-experience">
       <h1 style="text-align: center;">Previous Work Experience</h1>
       {%  for job in work_experiences %}
         <div class="work">
           <img class="small-img" src="../static/img/{{ job.image }}"/>
           <div class="work-description">
-            <h2>I previously worked at {{ job.company}} as a <strong>software engeineer intern</strong>. Here, I was able to work on two projects: </h2>
+            <h2>{{ job.introduction }}</h2>
             <div style="width: 90%;">
               <p style="font-size: 20px;">{{ job.description  }}</p>
             {% if job.description2 %}
@@ -83,31 +91,8 @@
       {% endfor %}
     </div>  
 
-    <!-- Hobbies -->
-    <div>
-      <h1 style="margin-top: 50px; text-align: center;"><strong>Hobbies</strong></h1>
-      <h3 style="text-align: center; margin-bottom: 20px;">Outside of programming, school, and other chores/work, I have various activities I partake in!</h3>
-
-      {% for hobby in hobbies %}
-        <p style="font-size: 20px; text-align: center;">{{ hobby.description }}</p>
-         {% if loop.index0 == 1 %}
-          <div style="display: flex; justify-content: center;">
-            <img class="hobby-images" src="../static/img/{{ hobby.image1 }}"/>
-            <img class="hobby-images" src="../static/img/{{ hobby.image2 }}"/>
-          </div>
-        {% else %}
-          <div style="display: flex; justify-content: center;">
-            <img class="small-img" src="../static/img/{{ hobby.image1 }}"/>
-            <img class="small-img" src="../static/img/{{ hobby.image2 }}"/>
-            <img class="small-img" src="../static/img/{{ hobby.image3 }}"/>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-
     <!-- Education -->
-    <div>
-
+    <div id="education">
       <h1 style="text-align: center;">Education</h1>
       {% for education in education %}
         <div>
@@ -122,10 +107,12 @@
     </div>
 
     <!-- Locations -->
-    <div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;" id="locations">
       <h1 style="text-align: center; margin-top: 30px;">Locations</h1>
       <p style="font-size: 20px; text-align: center;">Fun fact... I have never been on a plane yet... but I have went to many cool places!</p>
       <p style="font-size: 20px; text-align: center;">Some random places I've went to this past year was Columbia's DivHacks, Princeton's HackPrinceton, my sister's Cornell graduation, and Boston!!!</p>
+      <img class="map" src="../static/img/map.png"/>
+      <p style="font-size: 20px; text-align: center;">Here are some highlights of my time there!</p>
         <div style="display: flex; justify-content: center; align-items: center;">
           <img class="location-images" src="../static/img/hackprinceton.jpeg"/>
           <img class="location-images" src="../static/img/princeton.jpeg"/>
