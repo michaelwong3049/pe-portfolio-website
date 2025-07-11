@@ -86,17 +86,17 @@ def hobbies():
 
     return render_template("hobbies.html", hobbies=hobbies)
 
+@app.route("/timeline")
+def timeline():
+    timeline_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+    return render_template(
+        "timeline.html",
+        title="Timeline",
+        timeline_posts=timeline_posts
+    )
+
 @app.route("/api/timeline_post", methods=["POST"])
 def post_time_line_post():
-    # data = request.get_json()
-    #
-    # if data:
-    #     name = data['name']
-    #     email = data['email']
-    #     content = data['content']
-    # else:
-    #     raise Exception("Error with data")
-
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
@@ -112,5 +112,4 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
-
 
