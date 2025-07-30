@@ -23,7 +23,7 @@ services:
     image: jonasal/nginx-certbot
     restart: always
     environment:
-      - CERTBOT_EMAIL=name@example.com
+      - CERTBOT_EMAIL=michaelwong3049@gmail.com
     ports:
       - "80:80"
       - "443:443"
@@ -35,4 +35,4 @@ services:
 
 volumes:
   mydatabase:
-  ngnix_secrets
+  nginx_secrets:
