@@ -27,7 +27,7 @@ jobs:
         run: python -m venv env
 
       - name: Install Dependencies
-        run: python3-env/bin/pip install -r requirements.txt
+        run: env/bin/pip install -r requirements.txt
 
       - name: Run Tests
         run: ./run_test.sh
