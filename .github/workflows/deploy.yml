@@ -30,5 +30,8 @@ jobs:
 
       - name: Deploy site 
         run: ssh my-vps '~/redeploy-site.sh'
+
+      - name: Print container state
+        run: ssh my-vps 'cd ~/pe-portfolio-website && docker compose -f docker-compose.prod.yml ps'
       
 
